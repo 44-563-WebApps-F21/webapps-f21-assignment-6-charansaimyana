@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pass</title>
+
+    <h1>Pass phrase by Charan Sai Myana</h1>
+</head>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type="password" id="form1_secret_word" name="form1_secret_word" min=10 max=50 step=2 value="Secret">
+    <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus> 
+
+    <input type="button" onclick="processPhrase()" value="Check the Phrase">
+</form>
+
+
+<p id="result">Your Phrase count will be shown here.</p>
+
+<script>
+    correct = 0;
+        wrong = 0;
+
+    function processPhrase() {
+        
+        console.log("Checking the Guess......")
+        secret_Word = document.getElementById("form1_secret_word").value
+        guess_word = document.getElementById("form1_guess_word").value
+        confirm_guess = confirm("Is this guess word? " + guess_word)
+        result = document.getElementById("result")
+        if (confirm_guess) {
+            if (secret_Word.localeCompare(guess_word) == 0) {
+                alert("Access Allowed.")
+                correct = correct + 1
+                result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+            }
+            else
+            {
+                alert("Access Denied")
+                wrong = wrong + 1
+                result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+            }
+            
+        } else {
+            alert("Please Phrase the word again.!!!")
+        }
+    }
+
+ </script>
+
+</body>
+</html> 
