@@ -25,8 +25,16 @@
 
 <p id="result">Your Phrase count will be shown here.</p>
 
+<br>
+<br>
+
+<div class="container">
+    <img src="monkey.jpg" id="animal" alt="monkey" style="width:200px; height: 200px;" onclick="newImage()">
+
+</div>
+
 <script>
-    correct = 0;
+        correct = 0;
         wrong = 0;
 
     function processPhrase() {
@@ -53,6 +61,35 @@
             alert("Please Phrase the word again.!!!")
         }
     }
+
+ </script>
+
+ <!-- Iamge Script-->
+
+ <script>
+     usingImage = 1;
+
+     function newImage(){
+        Image=document.getElementById("animal");
+        switch(usingImage){
+            case 1: 
+                    Image.src = "monkey.jpg"
+                    usingImage = 2;
+                    break;
+
+            case 2: 
+                    Image.src = "cheetah.jpg"
+                    usingImage = 3;
+                    break;
+
+            case 3 :
+                    Image.src = "yalk.jpg"
+                    usingImage = 1;
+                    break;
+
+        }
+         
+     }
 
  </script>
 
