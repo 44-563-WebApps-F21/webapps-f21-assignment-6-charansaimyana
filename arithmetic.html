@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Arithemetic</title>
+</head>
+ 
+<body>
+
+<h2>Charan Sai Myana computes</h2>
+
+
+
+<div class="container">
+
+<form>
+    <label>Enter a base</label>
+    <input type="number" id="form1_base" value="10">
+
+    <label>Enter an exponent</label>
+    <input type="number" id="form1_expo" value="2">
+
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+<br><br>
+
+<div id="form1_result"></div>
+
+
+<form>
+    <input type="radio" name="arithemetic" value="plus" id="plus_id" onclick="processRadio()">
+    <label>+</label>
+<br>
+    <input type="radio" name="arithemetic" value="minus" id="minus_id" onclick="processRadio()">
+    <label>-</label>
+
+<br>
+    <input type="radio" name="arithemetic" value="times"  id="times_id" onclick="processRadio()">
+    <label>*</label>
+
+<br>
+    <input type="radio" name="arithemetic" value="divide" id="divide_id" onclick="processRadio()">
+    <label>/</label>
+
+<br>
+</form>
+
+<br><br>
+<div id="form2_result"></div>
+
+
+</div>
+
+<script>
+    function powers(){
+
+        var result = 0;
+
+        base = document.getElementById("form1_base").value;
+        expo = document.getElementById("form1_expo").value;
+        result_one = document.getElementById("form1_result");
+
+        for(i=1;i<=expo;i++){
+            
+            result = result+ Math.pow(base,i)+ " ";
+        }
+        result_one.innerHTML="powers of "+ base +" are: "+ result;
+
+    }
+</script>
+
+
+
+<script>
+
+function processRadio(){
+
+    value_one = document.getElementById("form1_base").value;
+    value_two = document.getElementById("form1_expo").value;
+
+    if(document.getElementById('plus_id').checked) {
+               
+        document.getElementById("form2_result").innerHTML = value_one + value_two;
+    }
+
+    else if(document.getElementById('minus_id').checked) {
+               
+               document.getElementById("form2_result").innerHTML = value_one - value_two;
+    }
+
+    else if(document.getElementById('times_id').checked) {
+               
+               document.getElementById("form2_result").innerHTML = value_one * value_two;
+    }
+
+    else if(document.getElementById('divide_id').checked) {
+               
+               document.getElementById("form2_result").innerHTML = value_one / value_two;
+    }
+
+}
+
+</script>
+
+
+</body>
+</html> 
