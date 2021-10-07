@@ -54,11 +54,20 @@
             {
                 alert("Access Denied")
                 wrong = wrong + 1
+                if(wrong>=3)
+                {
+                accountLocked()
+                }
                 result.innerHTML = "Correct Count: " + correct + "<br>" +"Wrong Count: " + wrong
             }
             
         } else {
             alert("Please Phrase the word again.!!!")
+        }
+
+        function accountLocked()
+        {
+            alert("Account Locked")
         }
     }
 
