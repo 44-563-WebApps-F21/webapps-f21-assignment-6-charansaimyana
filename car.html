@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html>
- 
+ <head>
+     <title>Cars</title>
+ </head>
 <body>
 
-<h2>Getting input</h2>
+<h2>Charan Sai Myana Orders a Car</h2>
+
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
-
-
-<p id="result">This text will be replaced </p>
-
-<script> 
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    <input type="checkbox" id="electric_id" name="electric" value="electric">
+    <label>electric</label>
+    </br>
+    
+    <input type="checkbox" id="ac_id" name="ac" value="ac">
+    <label>ac</label>
+    </br>
+    
+    <input type="checkbox" id="gps_id" name="gps" value="gps">
+    <label>gps</label>
+    </br>
+    
+    <input type="button" onclick="orderCar()" value="Order a car">
+
+</form>
+<br>
+<br>
+<form>
+    
+    <label>Enter a property </label>
+    <input type="text" id="property_name_id" name="property_name" value="color">
+    <br>
+    <br>
+   
+    <label for="property_value">Enter a value </label>
+    <input type="text" id="property_value_id" name="property_value" value="orange">
+    <br>
+    <br>
+   
+    <input class="btn btn-primary" type="button" onclick="updateCar()" value="Update the car">
+
+</form>
+<br>
+<div>
+    <p id="result">This text will be replaced</p>
+</div>
+</div>
+<script>
+    let my_car = {}
+    function orderCar() {
+            my_car = {}
+            electric_val = document.getElementById("electric_id").checked;
+            ac_val = document.getElementById("ac_id").checked;
+            gps_val = document.getElementById("gps_id").checked;
+            result_val = document.getElementById("result");
+
+            my_car = { electric: electric_val, ac: ac_val, gps: gps_val }
+            result_val.innerHTML = JSON.stringify(my_car)
+            my_car = JSON.parse(my_car);
     }
-}
+
+    function updateCar() {
+        property_name = document.getElementById("property_name_id").value;
+        property_value = document.getElementById("property_value_id").value;
+        
+        my_car[property_name] = property_value;
+        
+        document.getElementById("result").innerHTML = JSON.stringify(my_car)
+        my_car = JSON.parse(my_car);        
+    }
 </script>
 
 </body>
